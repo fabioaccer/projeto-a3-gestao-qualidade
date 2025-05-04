@@ -1,5 +1,5 @@
 from typing import Optional
-from services.desconto import CalculadorDesconto, DescontoCondicional
+from services.desconto import CalculadorDesconto
 
 class Produto:
     
@@ -9,7 +9,11 @@ class Produto:
         self.nome = nome
         self.preco = preco
         self.desconto = desconto
-        self.calculador = calculador or DescontoCondicional()
+        if calculador is not None:
+            self.calculador = calculador
+        else:
+            from services.desconto import DescontoCondicional
+            self.calculador = DescontoCondicional()
     
     def _validar_dados(self, nome: str, preco: float, desconto: float) -> None:
         if not nome or not nome.strip():
