@@ -1,0 +1,12 @@
+[project]
+name = "projeto-a3-gestao-qualidade"
+version = "0.1.0"
+description = "Projeto de gestão de qualidade"
+requires-python = ">=3.8"
+
+[project.dependencies]
+coverage = "7.8.2"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build" 
